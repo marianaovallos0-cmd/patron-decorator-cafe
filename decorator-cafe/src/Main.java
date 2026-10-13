@@ -8,27 +8,21 @@ public class Main {
         mostrar("Pedido 1", pedido1);
 
         // 2. Cafe + leche
-        Componente pedido2 = new CafeSimple();
-        pedido2 = new Leche(pedido2);
+        Componente pedido2 = new Leche(new CafeSimple());
         mostrar("Pedido 2", pedido2);
 
         // 3. Cafe + leche + azucar
-        Componente pedido3 = new CafeSimple();
-        pedido3 = new Leche(pedido3);
-        pedido3 = new Azucar(pedido3);
+        Componente pedido3 = new Azucar(new Leche(new CafeSimple()));
         mostrar("Pedido 3", pedido3);
 
         // 4. Cafe + leche + azucar + chocolate (todo apilado)
-        Componente pedido4 = new CafeSimple();
-        pedido4 = new Leche(pedido4);
-        pedido4 = new Azucar(pedido4);
-        pedido4 = new Chocolate(pedido4);
+        Componente pedido4 = new Chocolate(new Azucar(new Leche(new CafeSimple())));
         mostrar("Pedido 4", pedido4);
 
-        // 5. Combinacion distinta SIN crear ninguna clase nueva:
-        //    cafe + chocolate (sin leche ni azucar), en una sola linea
+        // 5. Cafe + chocolate (sin leche ni azucar), en una sola linea
         Componente pedido5 = new Chocolate(new CafeSimple());
         mostrar("Pedido 5", pedido5);
+
     }
 
     // Recibe CUALQUIER Componente: no sabe si es simple o decorado.
